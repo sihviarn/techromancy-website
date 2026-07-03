@@ -2,6 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel';
 
 import { unified } from '@astrojs/markdown-remark';
 
@@ -25,7 +26,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
-
+  adapter: vercel(),
   integrations: [
     sitemap(),
     mdx(),
